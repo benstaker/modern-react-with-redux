@@ -2,8 +2,6 @@ import React, { useState } from 'react';
 import Convert from './Convert';
 import Dropdown from './Dropdown';
 
-const apiKey = 'AIzaSyCHUCmpR7cT_yDFHC98CZJy2LTms-IwDlM';
-
 const options = [
     {
         label: 'Afrikaans',
@@ -12,6 +10,10 @@ const options = [
     {
         label: 'Arabic',
         value: 'ar'
+    },
+    {
+        label: 'Dutch',
+        value: 'nl'
     },
     {
         label: 'Hindi',
@@ -39,7 +41,10 @@ const Translate = () => {
                 onSelectedChange={setLanguage}
             />
 
-            <Convert language={language.value} text={text} />
+            <hr />
+
+            <h3 className="ui header">Output</h3>
+            <Convert language={language} text={text} />
         </div>
     );
 };
