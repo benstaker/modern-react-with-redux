@@ -2,18 +2,14 @@ import './SearchBar.css';
 import React from 'react';
 
 class SearchBar extends React.Component {
-    state = {
-        term: ''
-    };
-
-    onInputChange = (e) => {
-        this.setState({ term: e.target.value });
-    };
-
     onFormSubmit = (e) => {
         e.preventDefault();
 
-        this.props.onFormSubmit(this.state.term);
+        this.props.onFormSubmit();
+    };
+
+    onTermChange = (e) => {
+        this.props.onTermChange(e.target.value);
     };
 
     render() {
@@ -22,7 +18,7 @@ class SearchBar extends React.Component {
                 <form onSubmit={this.onFormSubmit} className="ui form">
                     <div className="field">
                         <label>Video Search</label>
-                        <input type="text" onChange={this.onInputChange} value={this.state.term} />
+                        <input type="text" onChange={this.onTermChange} value={this.props.term} />
                     </div>
                 </form>
             </div>
