@@ -7,9 +7,9 @@ import VideoList from './VideoList';
 
 const App = () => {
     const [selectedVideo, setSelectedVideo] = useState(null);
-    const [term, setTerm] = useState('buildings');
+    const [term, setTerm] = useState('');
 
-    const [videos, search] = useVideos(term);
+    const [videos, search] = useVideos('buildings');
 
     useEffect(() => {
         setSelectedVideo(videos.length ? videos[0] : null);
